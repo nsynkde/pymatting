@@ -279,6 +279,9 @@ def ichol(
             break
 
         if nnz == -1:
+            print("Alpha matting will not be processed fast enough and will be skipped")
+            raise ValueError("Thresholded incomplete Cholesky decomposition failed due to insufficient positive-definiteness of matrix A")
+            #needed to make it an error to skip long waiting times
             print("PERFORMANCE WARNING:")
             print(
                 "Thresholded incomplete Cholesky decomposition failed due to insufficient positive-definiteness of matrix A with parameters:"
